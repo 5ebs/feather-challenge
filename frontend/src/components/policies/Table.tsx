@@ -10,6 +10,7 @@ interface ITableProps {
 
 //  paginator function
 function paginator(data: IPolicyData[], controller: IPoliciesController): IPolicyData[] {
+  if (data.length <= controller.pageSize) return data;
   return data.slice(controller.page === 1 ? 0 : (controller.page - 1) * controller.pageSize, controller.pageSize * controller.page);
 }
 
@@ -19,32 +20,30 @@ function Table({ queryData, controller }: ITableProps) {
 
   // useEffect to handle research by name
   useEffect(() => {
-    // remove all filters
     if (first === 0) {
       setFirst(1);
       return;
     }
+    // remove all filters
     controller.setSelectedProvider("ALL");
     controller.setSelectedType("ALL");
     controller.setSelectedStatus("ALL");
-    setPoliciesData(
-      paginator(
-        queryData.filter((policy: IPolicyData) => {
-          return (
-            policy.customer.firstName.toLowerCase().includes(controller.selectedName.toLowerCase()) ||
-            policy.customer.lastName.toLowerCase().includes(controller.selectedName.toLowerCase())
-          );
-        }),
-        controller
-      )
-    );
+
+    let filteredData = queryData;
+    filteredData = queryData.filter((policy: IPolicyData) => {
+      return (
+        policy.customer.firstName.toLowerCase().includes(controller.selectedName.toLowerCase()) ||
+        policy.customer.lastName.toLowerCase().includes(controller.selectedName.toLowerCase())
+      );
+    });
+    setPoliciesData(paginator(filteredData, controller));
   }, [controller.selectedName]);
 
   const filterProviderIsApplied = controller.selectedProvider !== "ALL";
   const filterTypeIsApplied = controller.selectedType !== "ALL";
   const filterStatusIsApplied = controller.selectedStatus !== "ALL";
 
-  // filter by the provider
+  // filter by provider
   function providerFilter(data: IPolicyData[]): IPolicyData[] {
     return data.filter((policy: IPolicyData) => {
       return policy.provider === controller.selectedProvider;
@@ -58,7 +57,7 @@ function Table({ queryData, controller }: ITableProps) {
     });
   }
 
-  // filter by the policy status
+  // filter by policy status
   function statusFilter(data: IPolicyData[]): IPolicyData[] {
     return data.filter((policy: IPolicyData) => {
       return policy.status === controller.selectedStatus;
@@ -83,6 +82,7 @@ function Table({ queryData, controller }: ITableProps) {
   };
 
   const handleNextPage = () => {
+    if (policiesData.length < controller.pageSize) return;
     if (queryData.length <= controller.pageSize * controller.page) return;
     controller.setCurrentPage(controller.page + 1);
   };

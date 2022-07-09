@@ -60,7 +60,9 @@ export default function PoliciesFilters({ controller, queryData }: IPoliciesFilt
             id='provider'
             onChange={(e) => handleProviderChange(e)}
           >
-            <option selected={controller.selectedProvider === "ALL"}>ALL</option>
+            <option selected={controller.selectedProvider === "ALL"} value='ALL'>
+              ALL PROVIDERS
+            </option>
             {providerOptions.map((providerOption) => (
               <option key={providerOption} value={providerOption} selected={controller.selectedProvider === providerOption}>
                 {providerOption}
@@ -79,7 +81,9 @@ export default function PoliciesFilters({ controller, queryData }: IPoliciesFilt
             id='type'
             onChange={(e) => handleTypeChange(e)}
           >
-            <option selected={controller.selectedType === "ALL"}>ALL</option>
+            <option selected={controller.selectedType === "ALL"} value='ALL'>
+              ALL TYPES
+            </option>
             {typeOptions.map((typeOption) => (
               <option key={typeOption} value={typeOption} selected={controller.selectedType === typeOption}>
                 {typeOption}
@@ -98,7 +102,9 @@ export default function PoliciesFilters({ controller, queryData }: IPoliciesFilt
             id='type'
             onChange={(e) => handleStatusChange(e)}
           >
-            <option selected={controller.selectedStatus === "ALL"}>ALL</option>
+            <option selected={controller.selectedStatus === "ALL"} value='ALL'>
+              ALL STATUS
+            </option>
             {statusOptions.map((statusOption) => (
               <option key={statusOption} value={statusOption} selected={controller.selectedStatus === statusOption}>
                 {statusOption}

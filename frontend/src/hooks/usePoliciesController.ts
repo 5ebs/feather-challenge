@@ -26,13 +26,9 @@ const usePoliciesController = (pageSize = 5): IPoliciesController => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("selected", selectedProvider, selectedType, selectedStatus);
     let url = setParam("provider", selectedProvider);
-    console.log("url 1", url.search);
     url = setParam("type", selectedType, url.toString());
-    console.log("url 2", url.search);
     url = setParam("status", selectedStatus, url.toString());
-    console.log("url 3", url.search);
     navigate(url.pathname + url.search);
   }, [selectedProvider, selectedType, selectedStatus]);
 

@@ -1,10 +1,3 @@
-export function getParam(paramName: string): string | null {
-  if (typeof window === "undefined") return null;
-  const windowUrl = window.location.search;
-  const params = new URLSearchParams(windowUrl);
-  return params.get(paramName);
-}
-
 export function setParam(paramName: string, value: string | null, originalUrl: string | null = null): URL {
   if (originalUrl === null) originalUrl = window.location.href;
 
