@@ -113,16 +113,20 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 ## General questions
 
 - How much time did you spend working on the solution?
+
   I spent about 12/15 hours working on the solution.
   I implemented basic navigation, introduced React Query for fetching data, created the filters and reset option, created the search using text input, paginated the table and wrote some tests with Cypress.
-  
+
 - What’s the part of the solution you are most proud of?
+
   I am most proud of the two controllers (useListController and usePoliciesController) that allow me to centralize the filter logic. In addition, the filters are also handled as parameters in the url, so the user can filter the table and share the filtered result. 
 
 - If you had more time, what other things you would like to do?
+
   I would have spent more time on the layout, making the filters look better for an enhanced UX, and I would have written more tests.
 
 - Do you have any feedback regarding this coding challenge?
+
   I enjoyed working on this coding challenge and felt like it represents a real work challenge.
   However, I found it a bit unusual to work with all the filters on the client-side, because I am used to passing all the filters as parameters in the query payload, refetching the query every time they change. So I do think the challenge is well done because it helped me learn a new approach.
 
