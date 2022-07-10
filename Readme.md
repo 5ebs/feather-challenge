@@ -4,7 +4,7 @@ Thank you for applying at Feather and taking the time to do this home assessment
 
 The goal of this project is to let you **show off your coding and problem-solving skills**, on a task that resembles the kind of work you’ll be doing with us.
 
-This coding challenge applies to **frontend, backend, and full-stack roles**. Depending on the position you are applying for, you can focus on your specific area.  
+This coding challenge applies to **frontend, backend, and full-stack roles**. Depending on the position you are applying for, you can focus on your specific area.
 
 You can spend as little or as much time as you like on this project. We've added some initial boilerplate to help you get started, but **feel free to refactor every part of this app as you may seem fit**.
 
@@ -15,11 +15,11 @@ You can spend as little or as much time as you like on this project. We've added
 
 ## Engineering challenge
 
-We've prepared several different user stories to work on. Depending on what position you applied to, pick one of them:  
+We've prepared several different user stories to work on. Depending on what position you applied to, pick one of them:
+
 - [Backend](./backend-readme.md)
 - [Frontend](./frontend-readme.md)
 - [Full Stack](./full-stack-readme.md)
-
 
 ## Task requirements
 
@@ -82,16 +82,16 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 
 ### Policy
 
-| fields         | type                            | comment                                       |
-| -------------- | ------------------------------- | --------------------------------------------- |
-| id             | string                          | Used to identify the policy                   |
-| customer       | [Customer](#Customer)           | Object holding the customer's informations    |
-| provider       | string                          | Name of the provider (Allianz, AXA…)          |
-| insuranceType  | [InsuranceType](#InsuranceType) | Type of the insurance (Liability, Household…) |
-| status         | [PolicyStatus](#PolicyStatus)   | Status of the insurance (Active, Cancelled)   |
-| startDate      | date                            | Date when the policy should start             |
-| endDate        | date                            | Date when the policy ends                     |
-| createdAt      | date                            | Date when the record was created              |
+| fields        | type                            | comment                                       |
+| ------------- | ------------------------------- | --------------------------------------------- |
+| id            | string                          | Used to identify the policy                   |
+| customer      | [Customer](#Customer)           | Object holding the customer's informations    |
+| provider      | string                          | Name of the provider (Allianz, AXA…)          |
+| insuranceType | [InsuranceType](#InsuranceType) | Type of the insurance (Liability, Household…) |
+| status        | [PolicyStatus](#PolicyStatus)   | Status of the insurance (Active, Cancelled)   |
+| startDate     | date                            | Date when the policy should start             |
+| endDate       | date                            | Date when the policy ends                     |
+| createdAt     | date                            | Date when the record was created              |
 
 ### Customer
 
@@ -113,11 +113,16 @@ Feel free to update or add more endpoints to accommodate or improve your solutio
 ## General questions
 
 - How much time did you spend working on the solution?
+  I spent about 12/15 hours working on the solution.
+  I implemented basic navigation, introduced React Query for fetching data, created the filters and reset option, created the search using text input, paginated the table and wrote some tests with Cypress.
+  
 - What’s the part of the solution you are most proud of?
-
-  _You can share a code snippet here if you feel like it_
+  I am most proud of the two controllers (useListController and usePoliciesController) that allow me to centralize the filter logic. In addition, the filters are also handled as parameters in the url, so the user can filter the table and share the filtered result. 
 
 - If you had more time, what other things you would like to do?
-- Do you have any feedback regarding this coding challenge?  
+  I would have spent more time on the layout, making the filters look better for an enhanced UX, and I would have written more tests.
 
-  _Is the initial setup working?, is something missing?, or any other comment_
+- Do you have any feedback regarding this coding challenge?
+  I enjoyed working on this coding challenge and felt like it represents a real work challenge.
+  However, I found it a bit unusual to work with all the filters on the client-side, because I am used to passing all the filters as parameters in the query payload, refetching the query every time they change. So I do think the challenge is well done because it helped me learn a new approach.
+
