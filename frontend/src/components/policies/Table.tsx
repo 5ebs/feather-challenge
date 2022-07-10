@@ -117,15 +117,15 @@ function Table({ queryData, controller }: ITableProps) {
                   {policiesData.length > 0 ? (
                     policiesData.map((policy, index) => (
                       <tr key={policy.id} className='border-b'>
-                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 page'>
                           {index + 1 + (controller.page - 1) * controller.pageSize}
                         </td>
-                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>
+                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap name'>
                           {policy.customer.firstName} {policy.customer.lastName}
                         </td>
-                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>{policy.provider}</td>
-                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>{policy.insuranceType}</td>
-                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>
+                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap provider'>{policy.provider}</td>
+                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap type'>{policy.insuranceType}</td>
+                        <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap status'>
                           <Badge status={policy.status} />
                         </td>
                       </tr>
@@ -144,13 +144,13 @@ function Table({ queryData, controller }: ITableProps) {
       <div className='px-5 py-5 bg-white  flex flex-col xs:flex-row items-center xs:justify-between'>
         <div className='inline-flex mt-2 xs:mt-0'>
           <button
-            className='whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700 mr-5'
+            className='whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700 mr-5 prev'
             onClick={handlePrevPage}
           >
             Prev
           </button>
           <button
-            className='whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700'
+            className='whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-600 hover:bg-gray-700 next'
             onClick={handleNextPage}
           >
             Next

@@ -29,6 +29,7 @@ export const SearchFilter = ({ controller }: IQueryProps) => {
         </svg>
       </span>
       <input
+        id='search'
         type='text'
         placeholder='Search by name'
         onChange={handleSearch}
